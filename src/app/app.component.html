@@ -1,3 +1,30 @@
 <h1>
   {{title}}
 </h1>
+<p *ngIf = "isTrue; else firstTemplate">te22st</p>
+<ng-template #firstTemplate>firdyt</ng-template>
+
+<p *ngIf = "isTrue; then firstTemp else secondTemp">te22st</p>
+<ng-template #firstTemp>fir</ng-template>
+<ng-template #secondTemp>sec</ng-template>
+<div class="main">
+  <h1> Item's List</h1>
+  <div class="addItem">
+    <input [(ngModel)]="newItem" placeholder="add item" class="addText">
+    <button (click)="pushItem()">Add</button>
+  </div>
+  <ul>
+    <li *ngFor="let i of items; let ind = index">
+      {{i}}
+      <span (click)="removeItem(ind)">x</span>
+    </li>
+  </ul>
+</div>
+<h2> Pipes </h2>
+<div>{{day}}</div>
+<div>{{day | date}}</div>
+<div>{{day | date : 'shortDate'}}</div>
+<div>{{day | date : 'fullDate'}}</div>
+<div>{{day | date : 'fullDate' | uppercase}}</div>
+<div>{{arr | sort : 'asc'}} </div>
+<div>{{arr | sort : 'desc'}} </div>
